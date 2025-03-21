@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="img/flowers.png" type="image/x-icon" />
+    <title>Flowers</title>
+  </head>
+
+  <body>
+    <div class="greetings">
+      <span>A</span>
+      <span>M</span>
+      <span>O</span>
+      <span>R</span>
+      <span>!</span>
+    </div>
+    <div class="description">
+      <span>TE AMO CON TODA MI ALMA, ESTO ES PARA TI 💖</span>
+    </div>
+    <div class="button">
+      <button class="botones">
+        <a href="flower.html" style="color: #fff">CLICK AQUÍ</a>
+      </button>
+    </div>
+    <script>
+      // Lista de imágenes disponibles
+      const images = [
+        "img/1.jpg",
+        "img/2.jpg",
+        "img/3.jpg",
+        "img/4.jpg",
+        "img/5.jpg",
+        "img/6.jpg",
+        "img/7.jpg",
+        "img/8.jpg",
+        "img/9.jpg",
+        "img/10.jpg",
+      ];
+
+      function createFloatingImage() {
+        const img = document.createElement("img");
+
+        // Selecciona una imagen aleatoria
+        img.src = images[Math.floor(Math.random() * images.length)];
+        img.classList.add("floating-image");
+
+        // Posición aleatoria en la pantalla
+        img.style.left = Math.random() * window.innerWidth + "px";
+
+        document.body.appendChild(img);
+
+        // Elimina la imagen después de 6 segundos
+        setTimeout(() => {
+          img.remove();
+        }, 6000);
+      }
+
+      // Crea varias imágenes al mismo tiempo
+      setInterval(() => {
+        createFloatingImage();
+        setTimeout(createFloatingImage, 1000); // Agrega otra con pequeño retraso
+      }, 2000);
+    </script>
+  </body>
+</html>
